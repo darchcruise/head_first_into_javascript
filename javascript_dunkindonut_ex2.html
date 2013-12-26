@@ -1,28 +1,6 @@
 <html>
   <head>
     <title>Dunkin Donuts - Order Online</title>
-
-
-<script type="text/javascript">
-        function updateOrder() {
-          const PRICEPERDONUT = 0.50;
-          const TAXRATE = 0.0925;
-
-          var cakeDonuts = document.getElementById("cakedonuts");
-            // parseInt(documentgetElementById("cakeDonuts").value);
-          var glazedDonuts = prompt("Enter number of Glazed Donuts");
-            parseInt(documentgetElementById("glazedDonuts"))
-          var totalDonuts = cakeDonuts + glazedDonuts;
-          var subtotal = totalDonuts * PRICEPERDONUT;
-          var tax = subtotal * TAXRATE;
-          var orderTotal = subtotal + tax;
-        }
-
-        function placeOrder() {
-          //Submit order to server...
-          form.submit();
-        }
-    </script>
  </head>
 
   <body>
@@ -30,13 +8,50 @@
     Duncan Donuts
 
     <form name="orderform" action="donuts.rb" method="POST">
-      Cake Donuts: <input type="text" id="cakedonuts" name="cakedonuts" value="" onchange="updateOrder();"/><br>
-      Glazed Donuts: <input type="text" id="glazedonuts" name="glazedDonuts" value="" onchange="updateOrder();"/><br>
-      Subtotal: <input type="text" id="subtotal" name="subtotal" value="" onchange="updateOrder();"/><br>
-      Tax: <input type="text" id="tax" name="tax" value="" onchange="updateOrder();"/><br>
-      Total: <input type="text" id="total" name="total" value="" onchange="updateOrder();"/><br>
+
+      Cake Donuts: <input type="text" id="cakedonuts" name="cakedonuts" onchange="updateOrder();";/><br>
+
+      Glazed Donuts: <input type="text" id="glazedonuts" name="glazedDonuts" onchange="updateOrder();"/><br>
+
+      Subtotal: <input type="text" id="subtotal" name="subtotal" value="" readonly= "readonly"/><br>
+
+      Tax: <input type="text" id="tax" name="tax" value="" readonly="readonly"/><br>
+
+      Total: <input type="text" id="total" name="total" value="" readonly="readonly"/><br>
+
             <input type="button" value="Place Order" onclick="placeOrder(this.form);"/>
     </form>
+
+    <script type="text/javascript">
+        function updateOrder() {
+          const PRICEPERDONUT = 0.50;
+          const TAXRATE = 0.0925;
+
+          var cakeDonuts = parseInt(document.getElementById("cakedonuts").value);
+          if (isNaN(cakeDonuts))
+            cakeDonuts = 0;
+          console.log(cakeDonuts);
+
+          var glazedDonuts = parseInt(document.getElementById("glazedonuts").value);
+          if (isNaN(glazedDonuts))
+            glazedDonuts = 0;
+          console.log(glazedDonuts);
+
+          var subtotal = (cakeDonuts + glazedDonuts) * PRICEPERDONUT;
+          document.getElementById("subtotal").value = "$" + subtotal.toFixed(2);
+
+          var tax = subtotal * TAXRATE;
+          document.getElementById("tax").value = "$" + tax.toFixed(2);
+
+          var orderTotal = subtotal + tax;
+          document.getElementById("total").value = "$" + orderTotal.toFixed(2);
+        }
+
+        function placeOrder() {
+          //Submit order to server...
+          form.submit();
+        }
+    </script>
 
   </body>
 
