@@ -1,0 +1,14 @@
+body {
+  font-family: Papyrus, fantasy;
+  text-align: center;
+}
+
+#frame {
+  margin-top: 15px;
+  color: orange;
+}
+
+.field {
+  margin-bottom: 5px;
+}
+

@@ -1,29 +1,45 @@
 <html>
   <head>
     <title>Dunkin Donuts - Order Online</title>
+    <link rel="stylesheet" type="text/css" href="dunkindonuts.css">
  </head>
 
   <body>
 
-    Duncan Donuts
+    <h1 id="frame">Duncan Donuts</h1>
 
     <form name="orderform" action="donuts.rb" method="POST">
-
+      <div class="field">
         Customer Name: <input type="text" id="name" name="name"/><br>
+      </div>
 
+      <div class="field">
         Customer Numeric Id: <input type="text" id="numid" name="numid"/><br>
+      </div>
 
+      <div class="field">
         Cake Donuts: <input type="text" id="cakedonuts" name="cakedonuts" onchange="updateOrder();";/><br>
+      </div>
 
+      <div class="field">
         Glazed Donuts: <input type="text" id="glazedonuts" name="glazedDonuts" onchange="updateOrder();"/><br>
+      </div>
 
+      <div class="field">
         Subtotal: <input type="text" id="subtotal" name="subtotal" value="" readonly= "readonly"/><br>
+      </div>
 
+      <div class="field">
         Tax: <input type="text" id="tax" name="tax" value="" readonly="readonly"/><br>
+      </div>
 
+      <div class="field">
         Total: <input type="text" id="total" name="total" value="" readonly="readonly"/><br>
+      </div>
 
-              <input type="button" value="Place Order" onclick="placeOrder(this.form);"/>
+      <div class="field">
+        <input type="button" value="Place Order" onclick="placeOrder(this.form);"/>
+      </div>
     </form>
 
     <script type="text/javascript">
