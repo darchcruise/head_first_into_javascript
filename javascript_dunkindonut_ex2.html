@@ -47,12 +47,12 @@
           const PRICEPERDONUT = 0.50;
           const TAXRATE = 0.0925;
 
-          var cakeDonuts = parseInt(document.getElementById("cakedonuts").value);
+          var cakeDonuts = Dozen(document.getElementById("cakedonuts").value);
           if (isNaN(cakeDonuts))
             cakeDonuts = 0;
           console.log(cakeDonuts);
 
-          var glazedDonuts = parseInt(document.getElementById("glazedonuts").value);
+          var glazedDonuts = Dozen(document.getElementById("glazedonuts").value);
           if (isNaN(glazedDonuts))
             glazedDonuts = 0;
           console.log(glazedDonuts);
@@ -65,6 +65,13 @@
 
           var orderTotal = subtotal + tax;
           document.getElementById("total").value = "$" + orderTotal.toFixed(2);
+        }
+
+        function Dozen(donutentered) {
+          numdonuts = parseInt(donutentered)
+          if (donutentered.indexOf("dozen") != -1)
+            numdonuts *= 12;
+          return numdonuts;
         }
 
         function placeOrder() {
