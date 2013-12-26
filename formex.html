@@ -1,0 +1,29 @@
+<html>
+<head>
+  <title></title>
+</body>
+
+<!-- HTML -->
+  <form>
+    Revenue:
+    <input type="text" name="revenue" id="revenue" onchange="updateOrder();"> <br>
+
+    Expense:
+    <input type="text" name="expense" id="expense" onchange="updateOrder();"> <br>
+
+    Profit:
+    <input type="text" id="subtotal" name="subtotal" value="" readonly="readonly">
+  </form>
+
+<!-- Javascript -->
+  <script type="text/javascript">
+    function updateOrder() {
+      var revenue = document.getElementById("revenue").value;
+      var expense = document.getElementById("expense").value;
+      var profit = revenue - expense;
+      document.getElementById("subtotal").value = profit;
+    }
+  </script>
+
+</body>
+</html>
