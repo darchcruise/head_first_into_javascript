@@ -1,23 +1,21 @@
 <html>
 <head>
   <title></title>
-</body>
-
-<!-- HTML -->
-<img id="image" src="irock/rock_happy.png">
-
-<!-- Javascript -->
+  <!-- Javascript -->
   <script type="text/javascript">
 
-    //The first line of code introduces a new image
-    // setTimeout("document.getElementById('image').src = 'irock/rock.png'", 2500);
-
-
-    setTimeout(function resizeRock() {
-      document.getElementById('image').style.height = (document.body.clientHeight * 0.9)
-    }, 2500);
+    function resizeRock() {
+      document.getElementById('image').style.height = (document.body.clientHeight * 0.9);
+    };
 
   </script>
+</head>
 
-</body>
+  <body onload="resizeRock()" onresize="resizeRock()">
+
+  <!-- HTML -->
+  <img id="image" src="irock/rock_happy.png">
+
+  </body>
+
 </html>
