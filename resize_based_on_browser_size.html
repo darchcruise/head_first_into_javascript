@@ -10,10 +10,13 @@
   <script type="text/javascript">
 
     //The first line of code introduces a new image
-    setTimeout("document.getElementById('image').src = 'irock/rock.png'", 2500);
+    // setTimeout("document.getElementById('image').src = 'irock/rock.png'", 2500);
 
-    //The second line of code shirks the new image
-    setTimeout("document.getElementById('image').style.height = '748px'", 5000);
+
+    setTimeout(function resizeRock() {
+      document.getElementById('image').style.height = (document.body.clientHeight * 0.9)
+    }, 2500);
+
   </script>
 
 </body>
