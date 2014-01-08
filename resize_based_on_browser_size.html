@@ -8,10 +8,14 @@
       document.getElementById('image').style.height = (document.body.clientHeight * 0.9);
     };
 
+    function greetUser() {
+      alert("Hi, I'm a magic rock");
+    }
+
   </script>
 </head>
 
-  <body onload="resizeRock()" onresize="resizeRock()">
+  <body onload="resizeRock(); greetUser()" onresize="resizeRock()">
 
   <!-- HTML -->
   <img id="image" src="irock/rock_happy.png">
